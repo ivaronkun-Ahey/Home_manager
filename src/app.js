@@ -113,7 +113,7 @@ function openMenuSettings() {
       <label style="display:flex; align-items:center; gap:8px;">
         <input type="checkbox"
                ${visibleModules[m.key] !== false ? 'checked' : ''}
-               onchange="toggleModule('${m.key}', this.checked)"
+               data-module-key="${m.key}"
                ${m.key === 'dashboard' || m.key === 'settings' ? 'disabled' : ''}>
         <span>${m.icon} ${label}</span>
       </label>
@@ -126,7 +126,11 @@ function openMenuSettings() {
       <p class="muted">${t('settings.menu_desc')}</p>
       ${content}
     </div>
-  `);
+  `, (root) => {
+    $$('[data-module-key]', root).forEach(input => {
+      input.onchange = () => toggleModule(input.dataset.moduleKey, input.checked);
+    });
+  });
 }
 
 async function toggleModule(key, visible) {
