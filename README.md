@@ -1,6 +1,7 @@
 # Home Manager Desktop
 
 Local-first Electron desktop app for home management: tasks, property, inventory, utilities, contacts, checklists, and gamification with a smart dashboard. All data stays on the device in a JSON file for privacy.
+<img width="1194" height="795" alt="Screenshot 2026-01-03 at 3 57 12" src="https://github.com/user-attachments/assets/2f9ea2f8-ae37-4e3a-9035-f1c640c344b0" />
 
 ## Features
 
