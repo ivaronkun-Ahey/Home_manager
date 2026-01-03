@@ -1,0 +1,44 @@
+{
+  "name": "home-manager-desktop",
+  "version": "4.1.0",
+  "description": "Local-only desktop home manager with property management, inventory, utilities tracking, utility calculator, analytics with charts, Telegram integration, enhanced gamification with 30+ achievements, contacts, checklists, notifications, smart dashboard, onboarding wizard, customizable navigation, and light/dark theme support.",
+  "main": "electron/main.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "pack": "electron-builder --dir",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "mime-types": "^2.1.35"
+  },
+  "devDependencies": {
+    "electron": "^31.6.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.example.home-manager",
+    "productName": "Home Manager",
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "mac": {
+      "category": "public.app-category.productivity"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    }
+  }
+}

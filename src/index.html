@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' https://cdn.jsdelivr.net;">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home Manager</title>
+  <link rel="stylesheet" href="./styles/app.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="app" id="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo">🏠</div>
+        <div class="brandText">
+          <div class="brandTitle">Home Manager</div>
+          <div class="brandSub">локально • desktop</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav">
+        <!-- Главное -->
+        <div class="navSection">Главное</div>
+        <button class="navItem active" data-route="dashboard">🏠 Дашборд</button>
+        <button class="navItem" data-route="tasks">📋 Дела</button>
+        <button class="navItem" data-route="calendar">📅 Календарь</button>
+
+        <!-- Мой дом -->
+        <div class="navSection">Мой дом</div>
+        <button class="navItem" data-route="property">🏠 Недвижимость</button>
+        <button class="navItem" data-route="rooms">🛋️ Комнаты</button>
+        <button class="navItem" data-route="inventory">📦 Инвентарь</button>
+
+        <!-- Обслуживание -->
+        <div class="navSection">Обслуживание</div>
+        <button class="navItem" data-route="assets">📦 Объекты</button>
+        <button class="navItem" data-route="maintenance">🔧 Обслуживание</button>
+        <button class="navItem" data-route="routines">🔄 Рутины</button>
+        <button class="navItem" data-route="checklists">✅ Чек-листы</button>
+
+        <!-- Финансы -->
+        <div class="navSection">Финансы</div>
+        <button class="navItem" data-route="meters">💧 Счётчики</button>
+        <button class="navItem" data-route="goals">🎯 Цели/покупки</button>
+
+        <!-- Справочники -->
+        <div class="navSection">Справочники</div>
+        <button class="navItem" data-route="contacts">📞 Контакты</button>
+        <button class="navItem" data-route="documents">📄 Документы</button>
+
+        <!-- Система -->
+        <div class="navSection">Система</div>
+        <button class="navItem" data-route="stats">🏆 Достижения</button>
+        <button class="navItem" data-route="settings">⚙️ Настройки</button>
+        <button class="navItem" data-route="backup">💾 Бэкап</button>
+      </nav>
+
+      <div class="sidebarFooter">
+        <div class="muted" id="appInfo">—</div>
+        <button class="linkBtn" id="openDataFolder">Открыть папку данных</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="header">
+        <div class="profileRow">
+          <label class="muted">Профиль:</label>
+          <select id="profileSelect"></select>
+        </div>
+
+        <div class="searchRow">
+          <input id="globalSearch" class="input" placeholder="Поиск (дела, обслуживание, цели, документы)…" />
+        </div>
+
+        <div class="actionsRow">
+          <div id="statsDisplay" style="display:none; margin-right:12px;"></div>
+          <button class="btn" id="quickAddBtn">＋</button>
+        </div>
+      </header>
+
+      <section class="content" id="content"></section>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+
+  <div class="modalOverlay" id="modalOverlay" hidden>
+    <div class="modal" id="modal"></div>
+  </div>
+
+  <script src="./i18n.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
